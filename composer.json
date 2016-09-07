@@ -1,0 +1,20 @@
+{
+    "name": "sahil-gulati/overloading",
+    "version":"1.0.0",
+    "description": "PHP overloading",
+    "authors": [
+        {
+            "name": "Sahil Gulati",
+            "email": "sahil.nona@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+	"php":">=5.3"
+    },
+    "autoload":{
+	"psr-0":{
+	    "Overloading":"src/"
+	}
+    }
+}
