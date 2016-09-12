@@ -1,10 +1,19 @@
 # Overloading
-This is an introductory framework to support PHP Overloading through closures.
+This is an introductory framework to support PHP Overloading through closures. Multiple functions can be defined with the same name with the help of closures. Every function and its implementation undergoes different validation methods. A complete basis usage examples is shared in this documentation.
 
-####Installation
-`composer require sahil-gulati/overloading`
-
-####Usage
+##Installation
+`composer require sahil-gulati/overloading`<br/>
+#####OR<br/>
+Create composer.json in your project directory
+<pre>
+{
+    "require":{
+        "sahil-gulati/overloading":"1.0.0"
+    }
+}
+</pre>
+`composer install`
+##Usage
 <pre>
 &lt;?php
 include 'vendor/autoload.php';
@@ -34,6 +43,7 @@ class Test extends Overloading\Overloading
         });		
     }
 }
+
 try
 {
     $obj =new Test("s");
@@ -42,5 +52,18 @@ try
 } catch (\Overloading\Exception\Exception $ex) {
     echo $ex->getErrorMessageForCode();
 }
-
 </pre>
+
+##Output
+<pre>
+in test1 x, y are s, g
+</pre>
+
+##Features
+**1.** *Constructor Overloading*<br/>
+**2.** *Function Overloading*
+
+
+`Note`: In this framework, Function definition and its invoke rely not on the type of arguments but on the no. of arguments. For instance if you define 2 functions, One with 3 arguments and Other also with 3 arguments, Then 2nd function's definition over-writes the definition of first, So if you call that function then second function/closure will be executed. This thing can be viewed as a feature/drawback. Later implementations of the this framework will effectively handle type handing with the same no. of arguments.
+
+`Disclaimer`: This framework is not claiming to support and parse overloading likewise in other languages. This is just an implementation that enables you to use PHP closures in place of overloading.
