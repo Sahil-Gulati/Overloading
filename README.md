@@ -61,13 +61,13 @@ in test1 x, y are s, g
 1. Constructor definition:
 <pre>
 parent::__construct(
-    func_get_args(),            **//array of arguments passed in constructor**
-    function($x) {              **//constructor definition 1.**
-        echo "in __construct x is $x\n";
-    },
-    function($x,$y) {           **//constructor definition 2.**
-        echo "in __construct x y are $x, $y \n";
-    }
+        func_get_args(),            **//array of arguments passed in constructor**
+        function($x) {              **//constructor definition 1.**
+            echo "in __construct x is $x\n";
+        },
+        function($x,$y) {           **//constructor definition 2.**
+            echo "in __construct x y are $x, $y \n";
+        }
 );
 </pre>
 2. Function definition:
