@@ -60,8 +60,8 @@ in test1 x, y are s, g
 </pre>
 
 ##Features
-**1.** *Constructor Overloading*<br/>
-**2.** *Function Overloading*
+**1.** Constructor Overloading<br/>
+**2.** Function Overloading
 
 
 `Note`: In this framework, Function definition and its invoke rely not on the type of arguments but on the no. of arguments. For instance if you define 2 functions, One with 3 arguments and Other also with 3 arguments, Then 2nd function's definition over-writes the definition of first, So if you call that function then second function/closure will be executed. This thing can be viewed as a feature/drawback. Later implementations of the this framework will effectively handle type handing with the same no. of arguments.
