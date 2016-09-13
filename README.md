@@ -23,12 +23,10 @@ class Test extends Overloading\Overloading
     {
         parent::__construct(
             func_get_args(),
-            function($x)
-            {
+            function($x) {
                 echo "in __construct x is $x\n";
             },
-            function($x,$y)
-            {
+            function($x,$y) {
                 echo "in __construct x y are $x, $y \n";
             }
         );
@@ -57,6 +55,26 @@ try
 ##Output
 <pre>
 in test1 x, y are s, g
+</pre>
+
+##Validations
+1. Constructor definition:
+<pre>
+parent::__construct(
+    func_get_args(),            **//array of arguments passed in constructor**
+    function($x) {              **//constructor definition 1.**
+        echo "in __construct x is $x\n";
+    },
+    function($x,$y) {           **//constructor definition 2.**
+        echo "in __construct x y are $x, $y \n";
+    }
+);
+</pre>
+2. Function definition:
+<pre>
+parent::__declare_FUNCTION_NAME(function($x) { **//FUNCTION_NAME is name of function to define**
+        echo "in test1 x is $x";
+});
 </pre>
 
 ##Features
