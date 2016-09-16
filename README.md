@@ -17,36 +17,44 @@ Create composer.json in your project directory
 ```php
 <?php
 include 'vendor/autoload.php';
-class Test extends Overloading\Overloading
+class OverloadingTest extends Overloading\Overloading
 {
+    public $x="";
+    public $y="";
     public function __construct()
     {
         parent::__construct(
             func_get_args(),
             function($x) {
-                echo "in __construct x is $x\n";
+                $this->x=$x;
+                echo "Setting the value of x";
             },
             function($x,$y) {
-                echo "in __construct x y are $x, $y \n";
+                $this->x=$x;
+                $this->y=$y;
+                echo "Setting the value of x and y";
             }
         );
     }
-    public function testing()
+    public function declareFunction()
     {
-        parent::__declare_test1(function($x){
-            echo "in test1 x is $x";
+        parent::__declare_testing_function(function($x){
+            $this->x=$x;
+            echo "X will be replaced by new value.";
         });
-        parent::__declare_test1(function($x,$y){
-            echo "in test1 x, y are $x, $y";
+        parent::__declare_testing_function(function($x,$y){
+            $this->x=$x;
+            $this->y=$y;
+            echo "X and Y will be replaced by new values";
         });		
     }
 }
 
 try
 {
-    $obj =new Test("s");
-    $obj->testing();
-    $obj->test1("s","g");
+    $obj =new OverloadingTest("s");
+    $obj->declareFunction();
+    $obj->testing_function("s","g");
 } catch (\Overloading\Exception\Exception $ex) {
     echo $ex->getErrorMessageForCode();
 }
@@ -54,7 +62,8 @@ try
 
 ##Output
 <pre>
-in test1 x, y are s, g
+Setting the value of x
+x and y will be replaced by new values
 </pre>
 
 ##Validations
@@ -63,17 +72,23 @@ in test1 x, y are s, g
 parent::__construct(
     func_get_args(),            //array of arguments passed in constructor**
     function($x) {              //constructor definition 1.**
-        echo "in __construct x is $x\n";
+        $this->x=$x;
+        echo "Setting the value of x";
     },
     function($x,$y) {           //constructor definition 2.**
-        echo "in __construct x y are $x, $y \n";
+        $this->x=$x;
+        $this->y=$y;
+        echo "Setting the value of x and y";
     }
+    //..,
+    //..,
+    //..
 );
 ```
 2. Function definition:
 ```php
 parent::__declare_FUNCTION_NAME(function($x) { //FUNCTION_NAME is name of function to define**
-    echo "in test1 x is $x";
+    echo "In function FUNCTION_NAME";
 });
 ```
 
