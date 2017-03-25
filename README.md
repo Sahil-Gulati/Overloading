@@ -1,9 +1,9 @@
 # Overloading
 This is an introductory framework to support PHP Overloading through closures. Multiple functions can be defined with the same name with the help of closures. Every function and its implementation undergoes different validation methods. A complete basis usage examples is shared in this documentation.
 
-##Installation
+## Installation
 `composer require sahil-gulati/overloading`<br/>
-#####OR<br/>
+##### OR<br/>
 Create composer.json in your project directory
 ```javascript
 {
@@ -13,7 +13,7 @@ Create composer.json in your project directory
 }
 ```
 `composer install`
-##Usage
+## Usage
 ```php
 <?php
 include 'vendor/autoload.php';
@@ -60,13 +60,13 @@ try
 }
 ```
 
-##Output
+## Output
 <pre>
 Setting the value of x
 x and y will be replaced by new values
 </pre>
 
-##Validations
+## Validations
 1. Constructor definition:
 ```php
 parent::__construct(
@@ -92,7 +92,7 @@ parent::__declare_FUNCTION_NAME(function($x) { //FUNCTION_NAME is name of functi
 });
 ```
 
-##Features
+## Features
 **1.** Constructor Overloading<br/>
 **2.** Function Overloading
 
